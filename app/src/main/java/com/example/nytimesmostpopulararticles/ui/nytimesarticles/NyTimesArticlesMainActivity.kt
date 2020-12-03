@@ -1,6 +1,7 @@
 package com.example.nytimesmostpopulararticles.ui.nytimesarticles
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -32,12 +33,15 @@ class NyTimesArticlesMainActivity : BaseActivity() {
             lifecycleOwner = this@NyTimesArticlesMainActivity
         }
 
-       articlesViewModel.mostPopularArticles.observe(this, Observer { list ->
+        articlesViewModel.mostPopularArticles.observe(this, Observer { list ->
             rvList.adapter = ArticlesAdapter().apply {
                 submitList(list.toMutableList())
             }
         })
 
+        articlesViewModel.errorMessage.observe(this, Observer {
+            Toast.makeText(this, it.peekContent(), Toast.LENGTH_SHORT).show()
+        })
     }
 
 }
