@@ -2,13 +2,11 @@ package com.example.nytimesmostpopulararticles.ui.nytimesarticles
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.nytimesmostpopulararticles.R
 import com.example.nytimesmostpopulararticles.databinding.ActivityMainBinding
 import com.example.nytimesmostpopulararticles.ui.BaseActivity
 import com.example.nytimesmostpopulararticles.utils.viewModelProvider
-import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class NyTimesArticlesMainActivity : BaseActivity() {

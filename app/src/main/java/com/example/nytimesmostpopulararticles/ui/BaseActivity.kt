@@ -4,10 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nytimesmostpopulararticles.utils.makeStatusBarTransparent
 import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Any>
@@ -15,6 +16,6 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
 
-        makeStatusBarTransparent()
+       // makeStatusBarTransparent()
     }
 }
