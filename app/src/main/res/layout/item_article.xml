@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="com.example.nytimesmostpopulararticles.models.Article" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="@dimen/item_article_logo"
+            android:layout_height="@dimen/item_article_logo"
+            android:padding="@dimen/margin_small"
+            android:src="@color/colorPrimary"
+            app:loadCircleImage="@{article.media[0].mediaMetadata[0].url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TitleBlackStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start|center"
+            android:lines="2"
+            android:text="@{article.title}"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="@+id/vertical_guideline"
+            app:layout_constraintStart_toEndOf="@id/imgLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Lorem ipsum dolor sit amet ds dsds dsd sd" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            style="@style/HeadingStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{article.byline}"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="Lorem ipsum dolor sit amet ds " />
+
+        <TextView
+            android:id="@+id/tvType"
+            style="@style/HeadingStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:text="@string/thompson"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/separator_guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+            tools:text="Lorem ipsum" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/separator_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            style="@style/HeadingStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{article.publishedDate}"
+            android:layout_marginTop="@dimen/margin_small"
+            android:drawableStart="@android:drawable/ic_menu_my_calendar"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/separator_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+            tools:text=" 05/27/19" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.90" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:padding="@dimen/margin_small"
+            android:scaleX="-1"
+            android:src="@drawable/ic_navigate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
