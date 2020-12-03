@@ -7,8 +7,8 @@ import static org.junit.Assert.assertEquals;
 public class NyTimesUnitTest {
 
     @Test
-    public void isBaseUrlMatch (){
+    public void isBaseUrlMatch() {
         assertEquals("https://api.nytimes.com/", BuildConfig.BASE_URL);
     }
-    
+
 }
