@@ -4,27 +4,37 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+data class MostPopularArticlesModel(
+    val copyright: String?,
+    val num_results: Int?,
+    val results: List<Article>?,
+    val status: String?
+)
+
 @Parcelize
 data class Article(
-    val id: Long?,
-    val url: String?,
-    val adxKeywords: String?,
-    val column: String?,
+    val `abstract`: String?,
+    val adx_keywords: String?,
+    val asset_id: Long?,
     val byline: String?,
-    val type: String?,
-    val title: String?,
-    val abstract: String?,
-    val publishedDate: String?,
-    val source: String?,
-    val assetId: Long?,
-    val views: Int?,
-    val desFacet: List<String>?,
-    val orgFacet: List<String>?,
-    val perFacet: List<String>?,
-    val geoFacet: List<String>?,
+    val column: String?,
+    val des_facet: List<String>?,
+    val eta_id: Int?,
+    val geo_facet: List<String>?,
+    val id: Long?,
     val media: List<Media>?,
-    val uri: String?
-
+    val nytdsection: String?,
+    val org_facet: List<String>?,
+    val per_facet: List<String>?,
+    val published_date: String?,
+    val section: String?,
+    val source: String?,
+    val subsection: String?,
+    val title: String?,
+    val type: String?,
+    val updated: String?,
+    val uri: String?,
+    val url: String?
 ) : Parcelable
 
 
