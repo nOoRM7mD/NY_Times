@@ -10,7 +10,7 @@ import com.example.nytimesmostpopulararticles.databinding.ItemArticleBinding
 import com.example.nytimesmostpopulararticles.models.Article
 import com.example.nytimesmostpopulararticles.BR
 
-class ArticlesAdapter :
+class ArticlesAdapter (private val onItemClick: (Int) -> Unit) :
     ListAdapter<Article, ArticlesAdapter.ArticlesViewHolder>(
         ArticleItemDiff
     ) {
@@ -25,6 +25,7 @@ class ArticlesAdapter :
     }
 
     override fun onBindViewHolder(holder: ArticlesViewHolder, position: Int) {
+        holder.itemView.setOnClickListener { onItemClick.invoke(position) }
         holder.bind(getItem(position))
     }
 

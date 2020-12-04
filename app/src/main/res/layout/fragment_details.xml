@@ -8,6 +8,9 @@
         <variable
             name="article"
             type="com.example.nytimesmostpopulararticles.models.Article" />
+        <variable
+            name="viewModel"
+            type="com.example.nytimesmostpopulararticles.ui.details.DetailsViewModel" />
 
     </data>
 
@@ -22,10 +25,10 @@
             android:layout_height="@dimen/item_article_logo"
             android:padding="@dimen/margin_small"
             android:src="@color/colorPrimary"
-            app:loadCircleImage="@{article.media[0].mediaMetadata[0].url}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadCircleImage="@{article.media[0].mediaMetadata[0].url}" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -33,14 +36,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_normal"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start|center"
-            android:lines="2"
             android:text="@{article.title}"
             android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="@+id/vertical_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imgLogo"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Lorem ipsum dolor sit amet ds dsds dsd sd" />
@@ -51,9 +53,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
-            android:lines="1"
+            android:layout_marginEnd="16dp"
             android:text="@{article.byline}"
-            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
@@ -87,9 +89,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
-            android:paddingBottom="5dp"
             android:drawableStart="@android:drawable/ic_menu_my_calendar"
             android:gravity="center"
+            android:paddingBottom="5dp"
             android:text="@{article.published_date}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvTitle"
@@ -98,23 +100,5 @@
             app:layout_constraintTop_toBottomOf="@+id/tvDesc"
             tools:text=" 05/27/19" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.90" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:padding="@dimen/margin_small"
-            android:scaleX="-1"
-            android:src="@drawable/ic_navigate"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

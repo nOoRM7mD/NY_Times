@@ -1,15 +1,12 @@
 package com.example.nytimesmostpopulararticles.utils
 
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Color
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.*
 import com.example.nytimesmostpopulararticles.result.Result
 import com.example.nytimesmostpopulararticles.result.Event
-import kotlin.reflect.KClass
 
 
 /**
@@ -63,15 +60,7 @@ fun <T, E> MediatorLiveData<E>.observeDataFrom(
     }
 }
 
-fun <T : Activity> Activity.startActivity(cls: KClass<T>) {
-    startActivity(Intent(this, cls.java))
-}
-
-fun Activity.makeStatusBarTransparent() {
-    window.apply {
-        addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        statusBarColor = Color.TRANSPARENT
-    }
+inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
+    beginTransaction().func().commit()
 }
 

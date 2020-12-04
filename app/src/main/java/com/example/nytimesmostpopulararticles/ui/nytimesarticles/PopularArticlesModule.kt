@@ -7,7 +7,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 
 @Module
-internal abstract class ArticlesHomeModule{
+internal abstract class PopularArticlesModule {
     @Binds
     @IntoMap
     @ViewModelKey(NyTimesArticlesViewModel::class)
